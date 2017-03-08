@@ -1,12 +1,13 @@
 <h1>Welcome</h1>
 <p>This is a basic chat app</p>
-  <%= @rooms.each do |r| %>
-    <div class="card-block">
+  <% @rooms.each do |r| %>
+    <h3>
       <%= r.name %> 
-    </div>
+    </h3>
   <% end %>
 
-  <%= form_for new_room_path do |f| %>
+  <hr>
+  <%= form_for :room, :url => {:action => "create"} do |f| %>
   <div class="field" style="display:inline-block">
     <%= f.text_field :name, placeholder: 'Room name', class: 'form-control' %>
   </div>
