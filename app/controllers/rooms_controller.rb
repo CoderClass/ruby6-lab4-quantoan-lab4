@@ -7,6 +7,10 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
 
+  def show
+    @room = Room.find_by_id(params[:id])
+  end
+
   def create
     @room = Room.new(room_params)
     @room.save!
